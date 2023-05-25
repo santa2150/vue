@@ -1,10 +1,10 @@
 <template class="color">
   <body>
     <section>
-      <h1 class="txt">
+      <h1 class="titulo">
         Bienvenidos al formulario de VUE
       </h1>
-      <section id="app" class="orden">
+      <section id="app" class="orden color">
 
         <form @submit.prevent="submitForm">
           <article class="txt">
@@ -24,15 +24,15 @@
           <br>
           <article class="txt">
             <label for="cc">Cedula: </label>
-            <input type="number" id="cc" max="8" v-model="cc" required>
+            <input type="number" id="cc" v-model="cc" required>
           </article>
           <br>
-          <button type="submit">Enviar</button>
+          <button class="btn_g" type="submit">Enviar</button>
         </form>
           <ul>
-            <li v-for="(persona, index) in personas" :key="index">
+            <li class="txt" v-for="(persona, index) in personas" :key="index">
               {{persona.name}} {{persona.ape}} - Edad: {{persona.age}} - Cedula: {{persona.cc}}
-              <button @click="borrar(index)"> Borrar usuario</button>
+              <button class="btn_e" @click="borrar(index)"> Borrar usuario</button>
             </li>
           </ul>
 
@@ -113,24 +113,41 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.color {
-  background-color: black;
+.titulo {
+  text-align: center;
 }
-
 .orden {
   margin-top: 60px;
-  margin: auto;
-  height: 50%;
-  background-color: #41B883;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .txt {
   color: #35495E;
-  margin-top: 60px;
-  margin: auto;
-  height: 50%;
+  margin-top: 20px;
   font-family: 'Courier New', Courier, monospace;
   font-size: larger;
   font-weight: bold;
+}
+
+.color {
+    background-color: #41B883;
+    padding: 20px;
+}
+
+.btn_g {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_e {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
 }
 </style>
